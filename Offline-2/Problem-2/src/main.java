@@ -23,19 +23,19 @@ public class main {
             System.out.println("Please enter your id to re-examine");
             int inp=sc.nextInt();
             if(inp==1){
-                s1.Send("Re examine request sent from "+ s1.getRoll());
+                s1.Send("Re examine request sent from student id "+ s1.getRoll());
             }
             if(inp==2){
-                s2.Send("Re examine request sent from "+ s1.getRoll());
+                s2.Send("Re examine request sent from student id "+ s1.getRoll());
             }
             if(inp==3){
-                s3.Send("Re examine request sent from "+ s1.getRoll());
+                s3.Send("Re examine request sent from student id "+ s1.getRoll());
             }
             if(inp==4){
-                s4.Send("Re examine request sent from "+ s1.getRoll());
+                s4.Send("Re examine request sent from student id "+ s1.getRoll());
             }
             if(inp==5){
-                s5.Send("Re examine request sent from "+ s1.getRoll());
+                s5.Send("Re examine request sent from student id "+ s1.getRoll());
             }
             if(inp==7){
                 break;

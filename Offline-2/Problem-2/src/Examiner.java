@@ -45,7 +45,7 @@ public class Examiner{
         this.ec = ec;
     }
     public void Notify(Student1 s, String msg){
-        System.out.println(msg);
+        //System.out.println(msg);
         int id=s.roll-1;
         int prev=marks[id];
         marks[id]=s.marks;

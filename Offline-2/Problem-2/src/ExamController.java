@@ -22,6 +22,7 @@ public class ExamController {
         this.s = s;
     }
     public void Send(Student1 s, String msg){
+        System.out.println("Re examine request got from student id " + s.getRoll());
 
         e.Notify(s,msg);
     }

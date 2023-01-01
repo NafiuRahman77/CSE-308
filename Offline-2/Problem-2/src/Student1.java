@@ -28,6 +28,7 @@ public class Student1 {
         System.out.println("Marks is : "+ marks);
     }
     public void Send(String msg){
+        System.out.println(msg);
         ec.Send(this,msg);
     }
 }
