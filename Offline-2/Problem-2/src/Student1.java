@@ -9,7 +9,7 @@ public class Student1 {
         this.ec=ec;
     }
 
-    public int getMarks() {
+    public int getMark() {
         return marks;
     }
 
@@ -28,7 +28,10 @@ public class Student1 {
         System.out.println("Marks is : "+ marks);
     }
     public void Send(String msg){
-        System.out.println(msg);
         ec.Send(this,msg);
+    }
+    public void Notify(String str,int m){
+        System.out.println(str);
+        marks=m;
     }
 }

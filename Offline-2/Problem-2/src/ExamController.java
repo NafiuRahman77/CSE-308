@@ -21,10 +21,15 @@ public class ExamController {
     public void setS(Student1 s) {
         this.s = s;
     }
-    public void Send(Student1 s, String msg){
-        System.out.println("Re examine request got from student id " + s.getRoll());
+    public void Send(Student1 st, String msg){
+        System.out.println(msg);
+        System.out.println("Re examine request got from student id " + st.getRoll());
+        this.s=st;
+        e.Notify(st,msg);
+    }
+    public void Send(Examiner ex, String msg,int m){
 
-        e.Notify(s,msg);
+        s.Notify(msg,m);
     }
     public void publishResult(){
         int[] resId=e.getId();

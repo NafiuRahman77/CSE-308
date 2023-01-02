@@ -1,8 +1,4 @@
-import java.util.ArrayList;
-import java.util.Random;
-
-
-public class Examiner{
+public class Examiner {
     private int[] id;
     private int[] marks;
     private ExamController ec;
@@ -45,13 +41,17 @@ public class Examiner{
         this.ec = ec;
     }
     public void Notify(Student1 s, String msg){
-        //System.out.println(msg);
-        int id=s.roll-1;
-        int prev=marks[id];
-        marks[id]=s.marks;
 
-        System.out.println("Student id: " + s.roll);
-        System.out.println("Previous marks : "+ prev);
-        System.out.println("Corrected marks : "+marks[id]);
+        int id=s.getRoll()-1;
+        int prev=marks[id];
+        marks[id]=s.getMark();
+        StringBuilder str=new StringBuilder();
+
+        str.append("Student id: " + Integer.toString(s.getRoll())+"\n"+"Previous marks : "+ Integer.toString(prev)+"\n"+"Corrected marks : "+Integer.toString(marks[id])+"\n");
+
+        ec.Send(this, String.valueOf(str),marks[id]);
     }
+
+
+
 }
