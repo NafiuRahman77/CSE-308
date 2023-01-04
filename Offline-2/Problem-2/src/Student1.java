@@ -1,20 +1,21 @@
 public class Student1 {
-    int marks;
+    int expectedmarks;
     int roll;
     ExamController ec;
+    ExamScript examScript;
 
     public Student1(ExamController ec, int marks, int roll) {
-        this.marks = marks;
+        this.expectedmarks = marks;
         this.roll = roll;
         this.ec=ec;
     }
 
     public int getMark() {
-        return marks;
+        return expectedmarks;
     }
 
     public void setMarks(int marks) {
-        this.marks = marks;
+        this.expectedmarks = marks;
     }
 
     public int getRoll() {
@@ -25,13 +26,13 @@ public class Student1 {
         this.roll = roll;
     }
     public void print(){
-        System.out.println("Marks is : "+ marks);
+        System.out.println("Marks is : "+ expectedmarks);
     }
-    public void Send(String msg){
+    public void reExamine(String msg){
         ec.Send(this,msg);
     }
     public void Notify(String str,int m){
         System.out.println(str);
-        marks=m;
+        expectedmarks=m;
     }
 }

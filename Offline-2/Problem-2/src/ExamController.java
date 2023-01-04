@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class ExamController {
     private Examiner e;
     private Student1 s;
@@ -32,14 +35,16 @@ public class ExamController {
         s.Notify(msg,m);
     }
     public void publishResult(){
-        int[] resId=e.getId();
-        int[] resMarks=e.getMarks();
-        for(int i=0;i<5;i++){
-            System.out.print(" "+ resId[i]);
+        List<Integer>resId=new ArrayList<Integer>();
+        resId=e.getId();
+        List<Integer>resMarks=new ArrayList<Integer>();
+         resMarks=e.getMarks();
+        for(int i=0;i<resId.size();i++){
+            System.out.print(" "+ resId.get(i));
         }
         System.out.println();
-        for(int i=0;i<5;i++){
-            System.out.print(" "+ resMarks[i]);
+        for(int i=0;i<resId.size();i++){
+            System.out.print(" "+ resMarks.get(i));
         }
         System.out.println();
     }
