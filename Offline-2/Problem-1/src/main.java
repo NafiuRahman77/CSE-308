@@ -1,38 +1,52 @@
 import java.util.Scanner;
 
-public class main {
+public class Main {
     public static void main(String[] args) {
-        VendingMachine vm=new VendingMachine();
-//        vm.insert(5);
-//        vm.insert(5);
-//        //vm.choose();
-//        int a=vm.dispense();
-//        System.out.println(a);
-//       vm.choose();
-//        vm.dispense();
+        Server ABC=new ABCServer();
+
         Scanner sc=new Scanner(System.in);
+        int a;
+
+            Observer premUser=new PremiumUser(ABC,1);
+            Observer regUser=new RegularUser(ABC,2);
+            ABC.register(premUser);
+            ABC.register(regUser);
 
         while(true){
-
-            System.out.println("Press 1 to insert money");
-            System.out.println("Press 2 to choose product");
-            System.out.println("Press 3 to dispense product");
-            int s=sc.nextInt();
-            if(s==1){
-                System.out.println("Enter the amount you wanna insert");
-                int amount=sc.nextInt();
-                vm.insert(amount);
+            System.out.println("Change state of server-");
+            System.out.println("1.Operational");
+            System.out.println("2.Partially down");
+            System.out.println("3.Fully down");
+             a=sc.nextInt();
+            if(a==1 ){
+                if(ABC.getCurrentState()!=1){
+                ABC.setCurrentState(1);
+                }
+                else{
+                    System.out.println("The server is already operational");
+                }
             }
-            else if(s==2){
-                vm.choose();
+            else if(a==2 ){
+                if(ABC.getCurrentState()!=2) {
+                    ABC.setCurrentState(2);
+                }
+                else{
+                    System.out.println("The server is already partially down");
+                }
             }
-            else if(s==3){
-                vm.dispense();
+            else if(a==3 ){
+                if(ABC.getCurrentState()!=3) {
+                    ABC.setCurrentState(3);
+                }
+                else{
+                    System.out.println("The server is already fully down");
+                }
             }
             else{
-                break;
+                System.out.println("Provide a valid input");
             }
-
         }
+
+
     }
 }
