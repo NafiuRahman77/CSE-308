@@ -44,6 +44,7 @@ public class RegularUser extends Observer{
                 options = sc.nextInt();
                 if (options == 1) {
                     setChoice("Partially using ABC");
+                    defServer.register(this);
                     break;
                 } else if (options == 2) {
                     setChoice("Fully using DEF");
@@ -73,19 +74,26 @@ public class RegularUser extends Observer{
         else if(getServer().getPreviousState()==2&&getServer().getCurrentState()==1){
             if(getChoice().equalsIgnoreCase("Fully using DEF")){
                 defServer.unregister(this);
-                int rand=(int) (Math.random() * (200));
+                int rand=(int) (Math.random() * (20));
                 while(rand==0) {
-                   rand= (int) (Math.random() * (200));
+                   rand= (int) (Math.random() * (20));
                 }
                 System.out.println("Sending "+ rand*20 +" bill to the user ");
-                setChoice("Operational");
+                setChoice("Fully using ABC");
+            }
+            else if(getChoice().equalsIgnoreCase("Partially using ABC")) {
+                setChoice("Fully using ABC");
             }
         }
         else if(getServer().getPreviousState()==3&&getServer().getCurrentState()==1){
             if(getChoice().equalsIgnoreCase("Fully using DEF")) {
                 defServer.unregister(this);
                 System.out.println("Sending 100$ bill to the user ");
-                setChoice("Operational");
+                setChoice("Fully using ABC");
+            }
+            else if(getChoice().equalsIgnoreCase("No services")) {
+                setChoice("Fully using ABC");
+
             }
         }
         else if(getServer().getPreviousState()==2&&getServer().getCurrentState()==3){
@@ -105,6 +113,10 @@ public class RegularUser extends Observer{
                     }
                 }
             }
+            else if(getChoice().equalsIgnoreCase("Fully using DEF")) {
+                System.out.println("User is already using the backup DEF server, no need to worry");
+            }
+
         }
         else if(getServer().getPreviousState()==3&&getServer().getCurrentState()==2){
             if(getChoice().equalsIgnoreCase("No services")) {
@@ -114,6 +126,7 @@ public class RegularUser extends Observer{
                     options = sc.nextInt();
                     if (options == 1) {
                         setChoice("Partially using ABC");
+                        defServer.register(this);
                         break;
                     } else if (options == 2) {
                         setChoice("Fully using DEF");
@@ -123,10 +136,29 @@ public class RegularUser extends Observer{
                         System.out.println("Invalid options, please choose a valid one");
                     }
                 }
+
+            }
+            else if(getChoice().equalsIgnoreCase("Fully using DEF")) {
+                while(true) {
+                    System.out.println("1.Continue Using DEF server");
+                    System.out.println("2.Revert to partially using ABC and DEF servers");
+                    options = sc.nextInt();
+                    if (options == 1) {
+                        setChoice("Fully using DEF");
+                        defServer.register(this);
+                        break;
+                    } else if (options == 2) {
+                        setChoice("Partially using ABC");
+                        defServer.register(this);
+                        break;
+                    } else {
+                        System.out.println("Invalid options, please choose a valid one");
+                    }
+                }
             }
         }
 
-        if(getChoice().equalsIgnoreCase("Operational")) {
+        if(getChoice().equalsIgnoreCase("Fully using ABC")) {
             System.out.println("Using ABC server");
 
         } else if(getChoice().equalsIgnoreCase("Partially using ABC") ) {

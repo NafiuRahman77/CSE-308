@@ -17,9 +17,10 @@ public class main {
         List<Integer>stdId=new ArrayList<Integer>();
         stdId.add(s1.getRoll()); stdId.add(s2.getRoll());stdId.add(s3.getRoll());stdId.add(s4.getRoll());stdId.add(s5.getRoll());
 
-
         Examiner e=new Examiner(ec,stdId,stdMarks);
-        ec.setE(e);
+        ec.setExaminer(e);
+        e.sendExamScript();
+
         ec.publishResult();
         Scanner sc=new Scanner(System.in);
 
@@ -41,7 +42,7 @@ public class main {
             if(inp==5){
                  s5.reExamine("Re examine request sent from student id "+ s5.getRoll());
             }
-            if(inp==7){
+            else{
                 break;
             }
 

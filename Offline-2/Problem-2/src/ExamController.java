@@ -4,6 +4,8 @@ import java.util.List;
 public class ExamController {
     private Examiner e;
     private Student1 s;
+    private List<Integer>resId=new ArrayList<Integer>();
+    private List<Integer>resMarks=new ArrayList<Integer>();
 
     public Examiner getE() {
         return e;
@@ -13,7 +15,7 @@ public class ExamController {
 
     }
 
-    public void setE(Examiner e) {
+    public void setExaminer(Examiner e) {
         this.e = e;
     }
 
@@ -21,7 +23,7 @@ public class ExamController {
         return s;
     }
 
-    public void setS(Student1 s) {
+    public void setStudent(Student1 s) {
         this.s = s;
     }
     public void Send(Student1 st, String msg){
@@ -34,14 +36,17 @@ public class ExamController {
 
         s.Notify(msg,m);
     }
+    public void SendScript(ExamScript es){
+        resId=es.getStudentId();
+        resMarks=es.getMarks();
+
+    }
     public void publishResult(){
-        List<Integer>resId=new ArrayList<Integer>();
-        resId=e.getId();
-        List<Integer>resMarks=new ArrayList<Integer>();
-         resMarks=e.getMarks();
+        System.out.println("Id : ");
         for(int i=0;i<resId.size();i++){
             System.out.print(" "+ resId.get(i));
         }
+        System.out.println("Marks: ");
         System.out.println();
         for(int i=0;i<resId.size();i++){
             System.out.print(" "+ resMarks.get(i));

@@ -61,11 +61,11 @@ public class PremiumUser extends Observer{
             defServer.register(this);
         }
         else if(getServer().getPreviousState()==2&&getServer().getCurrentState()==1){
-            setChoice("Operational");
+            setChoice("Fully using ABC");
             defServer.unregister(this);
         }
         else if(getServer().getPreviousState()==3&&getServer().getCurrentState()==1){
-            setChoice("Operational");
+            setChoice("Fully using ABC");
             defServer.unregister(this);
         }
         else if(getServer().getPreviousState()==2&&getServer().getCurrentState()==3){
@@ -97,7 +97,7 @@ public class PremiumUser extends Observer{
             }
         }
 
-        if(getChoice().equalsIgnoreCase("Operational")) {
+        if(getChoice().equalsIgnoreCase("Fully using ABC")) {
             System.out.println("Using ABC server");
 
         } else if(getChoice().equalsIgnoreCase("Partially using ABC") ) {

@@ -57,14 +57,19 @@ public class Examiner {
     }
     public void Notify(int roll, String msg, int expectedMark){
 
-        int id=roll-1;
-        int prev=marks.get(id);
-        marks.set(id,expectedMark);
+        int idroll=roll-1;
+        int prev=marks.get(idroll);
+        marks.set(idroll,expectedMark);
         StringBuilder str=new StringBuilder();
 
-        str.append("Student id: " + Integer.toString(roll)+"\n"+"Previous marks : "+ Integer.toString(prev)+"\n"+"Corrected marks : "+Integer.toString(marks.get(id))+"\n");
+        str.append("Student id: " + Integer.toString(roll)+"\n"+"Previous marks : "+ Integer.toString(prev)+"\n"+"Corrected marks : "+Integer.toString(marks.get(idroll))+"\n");
 
-        ec.Send(this, String.valueOf(str),marks.get(id));
+        ec.Send(this, String.valueOf(str),marks.get(idroll));
+        ec.SendScript(new ExamScript(id, marks));
+    }
+    public void sendExamScript(){
+        ExamScript exScript=new ExamScript(id, marks);
+        ec.SendScript(exScript);
     }
 
 

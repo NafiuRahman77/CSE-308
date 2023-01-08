@@ -1,26 +1,20 @@
-public class ExamScript {
-    private int studentId;
-    private int marks;
+import java.util.ArrayList;
+import java.util.List;
 
-    public ExamScript(int studentId, int marks) {
+public class ExamScript {
+    private List<Integer> studentId=new ArrayList<>();
+    private List<Integer> marks=new ArrayList<>();
+
+    public ExamScript(List<Integer> studentId, List<Integer> marks) {
         this.studentId = studentId;
         this.marks = marks;
     }
 
-    public int getStudentId() {
+    public List<Integer> getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
-    }
-
-    public int getMarks() {
+    public List<Integer> getMarks() {
         return marks;
-    }
-
-
-    public void setMarks(int marks) {
-        this.marks = marks;
     }
 }
