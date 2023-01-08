@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class ABCServer extends Server{
+public class DEFServer extends Server{
     private List<Observer> observers=new ArrayList<Observer>();
     private int previousState;
     private int currentState=1;
-    public ABCServer(){
+    public DEFServer(){
 
     }
 
@@ -27,7 +27,6 @@ public class ABCServer extends Server{
         this.currentState = currentState;
         notifyAllObservers();
     }
-    @Override
     public void register(Observer o){
         if(!observers.contains(o)) {
             observers.add(o);

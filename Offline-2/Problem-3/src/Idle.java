@@ -6,6 +6,7 @@ public class Idle extends State{
 
     @Override
     public int getChange() {
+        System.out.println("You haven't entered any money sir");
         return 0;
     }
 
@@ -30,11 +31,18 @@ public class Idle extends State{
 
     @Override
     public int dispense() {
+        System.out.println("There is no product to return");
         return 0;
     }
 
     @Override
     public void refund() {
+        System.out.println("You haven't entered any money sir");
+    }
+
+    @Override
+    public void refill(int amount) {
+        machine.setItemCount(amount);
 
     }
 }

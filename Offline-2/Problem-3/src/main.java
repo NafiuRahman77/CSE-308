@@ -17,6 +17,7 @@ public class main {
             System.out.println("Press 1 to insert money");
             System.out.println("Press 2 to choose product");
             System.out.println("Press 3 to dispense product");
+            System.out.println("Press 4 to refill the vending machine");
             int s=sc.nextInt();
             if(s==1){
                 System.out.println("Enter the amount you wanna insert");
@@ -28,6 +29,11 @@ public class main {
             }
             else if(s==3){
                 vm.dispense();
+            }
+            else if(s==4){
+                System.out.println("Enter product quantity: ");
+                int quantity=sc.nextInt();
+                vm.refill(quantity);
             }
             else{
                 break;

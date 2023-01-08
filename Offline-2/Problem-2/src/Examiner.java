@@ -55,14 +55,14 @@ public class Examiner {
     public void setEc(ExamController ec) {
         this.ec = ec;
     }
-    public void Notify(Student1 s, String msg){
+    public void Notify(int roll, String msg, int expectedMark){
 
-        int id=s.getRoll()-1;
+        int id=roll-1;
         int prev=marks.get(id);
-        marks.set(id,s.getMark());
+        marks.set(id,expectedMark);
         StringBuilder str=new StringBuilder();
 
-        str.append("Student id: " + Integer.toString(s.getRoll())+"\n"+"Previous marks : "+ Integer.toString(prev)+"\n"+"Corrected marks : "+Integer.toString(marks.get(id))+"\n");
+        str.append("Student id: " + Integer.toString(roll)+"\n"+"Previous marks : "+ Integer.toString(prev)+"\n"+"Corrected marks : "+Integer.toString(marks.get(id))+"\n");
 
         ec.Send(this, String.valueOf(str),marks.get(id));
     }

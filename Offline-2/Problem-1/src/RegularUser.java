@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class RegularUser extends Observer{
 
-    public RegularUser(Server server,int id) {
+    public RegularUser(Server server) {
         this.server=server;
-        this.id=id;
+        this.id=idCount;
+        idCount++;
     }
 
     public Server getServer() {
@@ -46,6 +47,7 @@ public class RegularUser extends Observer{
                     break;
                 } else if (options == 2) {
                     setChoice("Fully using DEF");
+                    defServer.register(this);
                     break;
                 } else {
                     System.out.println("Invalid options, please choose a valid one");
@@ -58,6 +60,7 @@ public class RegularUser extends Observer{
                 options = sc.nextInt();
                 if (options == 1) {
                     setChoice("Fully using DEF");
+                    defServer.register(this);
                     break;
                 } else if (options == 2) {
                     setChoice("No services");
@@ -69,12 +72,18 @@ public class RegularUser extends Observer{
         }
         else if(getServer().getPreviousState()==2&&getServer().getCurrentState()==1){
             if(getChoice().equalsIgnoreCase("Fully using DEF")){
-                System.out.println("Sending 100$ bill to the user ");
+                defServer.unregister(this);
+                int rand=(int) (Math.random() * (200));
+                while(rand==0) {
+                   rand= (int) (Math.random() * (200));
+                }
+                System.out.println("Sending "+ rand*20 +" bill to the user ");
                 setChoice("Operational");
             }
         }
         else if(getServer().getPreviousState()==3&&getServer().getCurrentState()==1){
             if(getChoice().equalsIgnoreCase("Fully using DEF")) {
+                defServer.unregister(this);
                 System.out.println("Sending 100$ bill to the user ");
                 setChoice("Operational");
             }
@@ -86,6 +95,7 @@ public class RegularUser extends Observer{
                     options = sc.nextInt();
                     if (options == 1) {
                         setChoice("Fully using DEF");
+                        defServer.register(this);
                         break;
                     } else if (options == 2) {
                         setChoice("No services");
@@ -107,6 +117,7 @@ public class RegularUser extends Observer{
                         break;
                     } else if (options == 2) {
                         setChoice("Fully using DEF");
+                        defServer.register(this);
                         break;
                     } else {
                         System.out.println("Invalid options, please choose a valid one");

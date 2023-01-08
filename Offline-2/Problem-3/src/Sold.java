@@ -39,5 +39,10 @@ public class Sold extends State{
 
     }
 
+    @Override
+    public void refill(int amount) {
+        System.out.println("Please finish purchase first then refill");
+    }
+
 
 }

@@ -42,7 +42,9 @@ public class VendingMachine {
     public void insert(int c){
         balance+=c;
     }
-
+    public void refill(int quantity){
+        state.refill(quantity);
+    }
     public void choose(){
          state.choose();
     }

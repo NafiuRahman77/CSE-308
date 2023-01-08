@@ -7,8 +7,8 @@ public class Main {
         Scanner sc=new Scanner(System.in);
         int a;
 
-            Observer premUser=new PremiumUser(ABC,1);
-            Observer regUser=new RegularUser(ABC,2);
+            Observer premUser=new PremiumUser(ABC);
+            Observer regUser=new RegularUser(ABC);
             ABC.register(premUser);
             ABC.register(regUser);
 
@@ -17,6 +17,7 @@ public class Main {
             System.out.println("1.Operational");
             System.out.println("2.Partially down");
             System.out.println("3.Fully down");
+            System.out.println("Press 4 to exit menu");
              a=sc.nextInt();
             if(a==1 ){
                 if(ABC.getCurrentState()!=1){
@@ -41,6 +42,9 @@ public class Main {
                 else{
                     System.out.println("The server is already fully down");
                 }
+            }
+            else if(a==4 ){
+                break;
             }
             else{
                 System.out.println("Provide a valid input");

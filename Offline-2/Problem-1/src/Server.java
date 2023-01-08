@@ -9,4 +9,5 @@ public abstract class Server {
     public abstract void setCurrentState(int currentState);
     public abstract int getCurrentState();
     public abstract void register(Observer o);
+    public abstract void unregister(Observer o);
 }

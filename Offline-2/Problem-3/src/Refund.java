@@ -26,4 +26,9 @@ public class Refund extends State{
         System.out.println("Money is refunded : "+remaining);
 
     }
+
+    @Override
+    public void refill(int amount) {
+        System.out.println("Can't refill while refunding");
+    }
 }
