@@ -27,7 +27,7 @@ public class Company {
         }
     }
     public boolean details(String name){
-        System.out.println(projectList.size());
+        //System.out.println(projectList.size());
         for(int i=0;i<projectList.size();i++){
             if(projectList.get(i).getName().equalsIgnoreCase(name)){
                 projectList.get(i).printDetails();
@@ -62,6 +62,7 @@ public class Company {
             }
             if(projectList.get(i).getName().equalsIgnoreCase(s)){
                 projectList.remove(i);
+                System.out.println("Successfully removed manager "+ s);
                 return true;
             }
         }
@@ -73,6 +74,7 @@ public class Company {
             for(int j=0;j<lst.size();j++){
                 if(lst.get(j).getName().equalsIgnoreCase(s)){
                     lst.remove(j);
+                    System.out.println("Successfully removed developer "+ s);
                     return true;
                 }
             }

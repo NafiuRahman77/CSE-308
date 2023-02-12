@@ -49,7 +49,8 @@ public class Main {
             System.out.println("Press 5 to see employee details");
             System.out.println("Press 6 to remove a manager");
             System.out.println("Press 7 to remove a developer");
-            System.out.println("Press 8 to exit");
+            System.out.println("Press 8 to remove a company");
+            System.out.println("Press 9 to exit");
 
             int a= sc.nextInt();
             String res=sc.nextLine();
@@ -140,7 +141,6 @@ public class Main {
                     if(!bool){
                         System.out.println("This manager doesn't exist in this company");
                     }
-
                 }
                 else{
                     System.out.println("This company doesn't exist");
@@ -155,15 +155,31 @@ public class Main {
                     String c=sc.nextLine();
                     boolean bool=comp.removeDeveloper(c);
                     if(!bool){
-                        System.out.println("This deliver doesn't exist in this company");
+                        System.out.println("This developer doesn't exist in this company");
                     }
-
                 }
                 else{
                     System.out.println("This company doesn't exist");
                 }
             }
-            if(a==8) break;
+            if(a==8){
+                System.out.println("Enter company name");
+                String b=sc.nextLine();
+                Company comp=util(companyList,b);
+                if(comp!=null){
+                    if(comp.getProjectList().size()>0){
+                        System.out.println("You need to remove managers first");
+                    }
+                    else{
+                        System.out.println("Successfully removed company " + b);
+                    }
+                }
+                else{
+                    System.out.println("This company doesn't exist in our database");
+                }
+
+            }
+            if(a==9) break;
         }
 
     }
